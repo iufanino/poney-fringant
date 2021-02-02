@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Le Poney Fringant</title>
+    <link rel="icon" href="../images/logo.png" type="image/icon">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+<body>
+
+    <header class="header">
+
+        <a href="../index.html"><img src="../images/logo-poney.png" alt="logo"></a>
+
+        <nav class="nav">
+
+            <ul>
+
+                <li><a href="membres.html">Membres</a></li>
+                <li><a href="statistiques.html">Statistiques</a></li>
+
+                <form id="form-recherche" action="" method="POST">
+
+                    <input type="search" name="rechercher" placeholder="  Rechercher" value="">
+                    <button type="submit" value="rechercher"><i class="fa fa-search"></i></button>
+                
+                </form> 
+
+                <li><a href="">Se connecter</a></li>
+
+            </ul>
+        </nav>
+
+    </header>
+
+    <main class="main">
+
+        <div class="container-connexion">
+
+            <img src="../images/image-poney.png" alt="">
+
+            <div class="formulaire-connexion">
+
+                <h3>Connectez-vous</h3>
+
+                <p>Se connecter à votre espace personnel de Poney Fringant</p>
+    
+                <form class="form-connexion" action="http://back.poney-fringant.local:9595/connexion.php" method="POST">
+
+                    <input type="email" name="email" id="email"required placeholder="Votre e-mail ou pseudo">
+                    <input type="password" name="password" id="password" required placeholder="Votre mot de passe">
+
+                    <div class="checkbox">
+                        <input type="checkbox" name="checkbox" id="checkbox">
+                        <label for="checkbox">Se souvenir de moi</label>
+                    </div>
+
+                    <button type="submit" id="connextion">Se connecter</button>
+                    <a href="mdp.html">Mot de passe oublié ?</a> 
+                    <button><a href="inscription.html"> Créer un compte</a></button>
+            
+                </form>
+                
+            </div>
+
+        </div>
+
+    </main>
+
+    <footer class="footer">
+
+        <p>ASSOCIATION LE PONEY FRINGANT</p>
+
+        <ul>
+            <li><i class="fa fa-envelope"></i> poneyfringant@gmail.com</li>
+            <li><i class="fa fa-phone"></i> 06 12 34 56 78</li>
+            <li><i class="fa fa-map-marker"></i> Marseille</li>
+        </ul>
+
+        <ul>
+            <li><a href="" id="link"><i class="fa fa-facebook"></i></a></li>
+            <li><a href="" id="link"><i class="fa fa-instagram"></i></a></li>
+            <li><a href="" id="git"><i class="fa fa-twitter"></i></a></li>
+        </ul>
+
+        <a href="connexion.html" id="chevron"><i class="fa fa-chevron-up"></i></a>
+
+    </footer>
+    
+</body>
+</html>
