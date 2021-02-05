@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Les centres d'intérets</title>
+    <link rel="icon" href="../images/logo.png" type="image/icon">
+    <link rel="stylesheet" href="../styles/main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+</head>
+
+<body>
+
+    <header class="header">
+
+        <a href="index.html"><img src="../images/logo-poney.png" alt="logo"></a>
+
+        <nav class="nav">
+
+            <ul>
+
+                <li><a href="pages/membres.html">Membres</a></li>
+                <li><a href="pages/statistiques.html">Statistiques</a></li>
+
+                <form id="form-recherche" action="" method="POST">
+
+                    <input type="search" name="rechercher" id="search" placeholder="  Rechercher" value="">
+                    <button type="submit" value="rechercher"><i class="fa fa-search"></i></button>
+                
+                </form> 
+            
+            </ul>
+
+        </nav>
+
+    </header>
+
+    <main class="main-centre-interet">
+
+        <h3>Enregistrement</h3>
+        <p>Pour finaliser votre inscription, il faut choisir au moins trois centres d'intérets</p>
+
+        <div class="container-checkbox">
+
+            <img src="../images/poney.png" alt="">
+
+            <h4>Les centres d'intérets</h4>
+
+            <form class="from-checkbox" action="http://back.poney-fringant.local:9595/centre-interet.php">
+
+                <div>
+
+                    <div class="box">
+                        <input type="checkbox" name="animaux" class="checkbox"><br>
+                        <label for="animaux">Animaux</label>
+                    </div>
+
+                    <div class="box">
+                        <input type="checkbox" name="licornes" class="checkbox">
+                        <label for="licornes">Licornes</label>
+                    </div>
+
+                    <div class="box">
+                        <input type="checkbox" name="jeux-videos" class="checkbox">
+                        <label for="jeux-videos">Jeux vidéos</label>
+                    </div>
+                  
+                    <div class="box">
+                        <input type="checkbox" name="sport" class="checkbox">
+                        <label for="sport">Sport</label>
+                    </div>   
+                    
+                    <div class="box">
+                        <input type="checkbox" name="musique" class="checkbox">
+                        <label for="musique">Musique</label>
+                    </div>   
+                    
+                    <div class="box">
+                        <input type="checkbox" name="informatique" class="checkbox">
+                        <label for="informatique">Informatique</label>
+                    </div>
+                   
+                    <div class="box">
+                        <input type="checkbox" name="lecture" class="checkbox">
+                        <label for="lecture">Lecture</label>
+                    </div>
+                    
+                    <div class="box">
+                        <input type="checkbox" name="joaillerie" class="checkbox">
+                        <label for="joaillerie">Joaillerie</label>
+                    </div>  
+                    
+                    <div class="box">
+                        <input type="checkbox" name="cuisine" class="checkbox">
+                        <label for="cuisine">Cuisine</label>
+                    </div>
+                    
+                    <div class="box">
+                        <input type="checkbox" name="aviation" class="checkbox">
+                        <label for="aviation">Aviation</label>
+                    </div>
+                    
+                    <div class="box">
+                        <input type="checkbox" name="mecanique" class="checkbox">
+                        <label for="mecanique">Mécanique</label>
+                    </div>
+
+                </div>
+
+                <div>
+
+                    <div class="box">
+                        <input type="checkbox" name="sorties" class="checkbox">
+                        <label for="sorties">Sorties</label>
+                    </div>
+
+                    <div class="box">
+                        <input type="checkbox" name="agriculture" class="checkbox">
+                        <label for="agriculture">Agriculture</label>
+                    </div>
+
+                    <div class="box">
+                        <input type="checkbox" name="cinema" class="checkbox">
+                        <label for="cinema">Cinéma</label>
+                    </div>
+
+                    <div class="box">
+                        <input type="checkbox" name="politique" class="checkbox">
+                        <label for="politique">Politique</label>
+                    </div>
+
+                    <div class="box">
+                        <input type="checkbox" name="couture" class="checkbox">
+                        <label for="couture">Couture</label>
+                    </div>
+
+                    <div class="box">
+                        <input type="checkbox" name="science" class="checkbox">
+                        <label for="science">Science</label>
+                    </div>
+
+                    <div class="box">
+                        <input type="checkbox" name="histoire" class="checkbox">
+                        <label for="histoire">Histoire</label>
+                    </div>
+
+                    <div class="box">
+                        <input type="checkbox" name="taxidermie" class="checkbox">
+                        <label for="taxidermie">Taxidermie</label>
+                    </div>
+
+                    <div class="box">
+                        <input type="checkbox" name="philatélie" class="checkbox">
+                        <label for="philatélie">Philatélie</label>
+                    </div>
+
+                    <div class="box">
+                        <input type="checkbox" name="physique-chimie" class="checkbox">
+                        <label for="physique-chimie">Physique-chimie</label>
+                    </div>
+
+                    <div class="box">
+                        <input type="checkbox" name="SVT" class="checkbox">
+                        <label for="SVT">SVT</label>
+
+                    </div>
+
+                </div> 
+
+                <button type="submit">Enregistrer</button> 
+
+            </form>
+            
+        </div>
+
+    </main>
+
+    <footer class="footer">
+
+        <p>ASSOCIATION LE PONEY FRINGANT</p>
+
+        <ul>
+            <li><i class="fa fa-envelope"></i> poneyfringant@gmail.com</li>
+            <li><i class="fa fa-phone"></i> 06 12 34 56 78</li>
+            <li><i class="fa fa-map-marker"></i> Marseille</li>
+        </ul>
+
+        <ul>
+            <li><a href="" id="link"><i class="fa fa-facebook"></i></a></li>
+            <li><a href="" id="link"><i class="fa fa-instagram"></i></a></li>
+            <li><a href="" id="git"><i class="fa fa-twitter"></i></a></li>
+        </ul>
+
+        <a href="centre-interet.html" id="chevron"><i class="fa fa-chevron-up"></i></a>
+
+    </footer>
+    
+</body>
+</html>

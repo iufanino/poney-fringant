@@ -1,9 +1,11 @@
 <?php
-    // Faire comprendre au navigateur ce qu'on lui répond :
-    header('Access-Control-Allow-Origin: *'); 
-    header ('Content-Type: application/json');
-
+    
+    include('headers.php');
     include('db.php');
+
+    ini_set('display_errors', 1);
+    ini_set('display_startup_errors', 1);
+    error_reporting(E_ALL);
 
     // Récupérer les données du formulaire d'enregistrement : (méthode POST)
     $nom = $_POST['nom'];
@@ -11,7 +13,7 @@
     $pseudo = $_POST['pseudo']; 
     $email = $_POST['email'];
     $tel = $_POST['tel'];
-    $numemo_adherent = $_POST['numero_adherent'];
+    $numero_adherent = $_POST['numero_adherent'];
     $password = $_POST['password'];
     $pass_conf = $_POST['password_confirmation']; 
     $adresse = $_POST['adresse'];
@@ -102,6 +104,7 @@
             echo "Problème lors de l'enregistrement";
             exit;
         } else {
+            header('location: http://www.poney-fringant.local:9595/pages/centre-interet.html');
             echo "Bienvenue $prenom, tu es bien enregistré.";
         } 
 
