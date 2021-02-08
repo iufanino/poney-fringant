@@ -78,7 +78,7 @@ body,html{
     height: calc(100vh - 110px);
     width: 100%;
 }
-.container{
+.container-connexion{
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -90,37 +90,37 @@ body,html{
     box-shadow:  5px 5px 30px #82cca2, -5px -5px 30px #c4fff2;
     transition: all 0.7s ease-in-out;
 }
-.container:hover{
+.container-connexion:hover{
     box-shadow: inset -10px -10px 25px #8fe0b2, 10px 10px 25px #b7ffe2;
 }
-.container img{
+.container-connexion img{
     height: 70%;
     width: auto;
     padding-left: 20px;
 }
-.container img:hover{
+.container-connexion img:hover{
     height: 75%;
 }
-.formulaire{
+.formulaire-connexion{
     display: flex;
     flex-direction: column;
     text-align: center;
     font-size: 15px;
 }
-.formulaire h3{
+.formulaire-connexion h3{
    padding-top: 25px;
 }
-.formulaire p{
+.formulaire-connexion p{
     padding: 25px 40px 0 40px;
 }
-.formulaire a{
+.formulaire-connexion a{
     text-decoration: none;
     color: rgb(2, 56, 27);
 }
-.formulaire a:hover{
+.formulaire-connexion a:hover{
     font-size: 16px;
 }
-.form{
+.form-connexion{
     width: 70%;
     height: auto;
     text-align: center;
@@ -132,7 +132,7 @@ body,html{
     align-content: center;
     margin-left: 15%;
 }
-.form input, .form button{
+.form-connexion input, .form-connexion button{
     box-shadow:  inset 5px 5px 10px #bec1ca, inset -5px -5px 10px #f1f1f1; 
     transition: all 0.2s ease-in-out;
     cursor: pointer;
@@ -142,7 +142,7 @@ body,html{
     border-radius: 30px;
     outline: none;
 }
-.form input{
+.form-connexion input{
     padding-left: 25px;
 }
 input:focus{
@@ -151,20 +151,20 @@ input:focus{
 .form .checkbox{
     
 }
-.form button{
+.form-connexion button{
     background: rgb(42, 185, 42);
     box-shadow: inset 5px 5px 10px #1d821d, inset -5px -5px 10px #37f137;
     color: #0f0f0f;
 }
-.form button:last-child{
+.form-connexion button:last-child{
     box-shadow: inset 5px 5px 10px #0b610b, inset -5px -5px 10px #14b314;
     background: rgb(15, 138, 15);
 }
-.form button:hover{
+.form-connexion button:hover{
     background: rgb(51, 223, 51);
     box-shadow: inset 5px 5px 10px #33cc33, inset -5px -5px 10px #4dff4d;
 }
-.form button:active{
+.form-connexion button:active{
     background: rgb(42, 185, 42);
     box-shadow: inset -2px -2px 5px #1d821d, inset 2px 2px 5px #37f137;
 }

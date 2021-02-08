@@ -3,11 +3,8 @@
     include('headers.php');
     include('db.php');
 
-    ini_set('display_errors', 1);
-    ini_set('display_startup_errors', 1);
-    error_reporting(E_ALL);
-
     // Récupérer les données du formulaire d'enregistrement : (méthode POST)
+    $id = $_POST('id_adherent');
     $nom = $_POST['nom'];
     $prenom = $_POST['prenom'];
     $pseudo = $_POST['pseudo']; 
@@ -20,6 +17,8 @@
     $code_postal = $_POST['code_postal'];
     $ville = $_POST['ville'];
 
+    global $dbconnexion;
+
     // Valider les données d'enregistrement 
 
     // Vérifier le nombre maximal de caractères par rapport aux types renseigné lors de la création de la BDD
@@ -30,7 +29,7 @@
 
     // Vérifier le format de l'email avec le filtre de validation des emails (la fonction filter_var)
     if(!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        echo "Le format de l'adresse est incorrect"; 
+        echo "Le format de l'adresse e-mail est incorrect"; 
         exit; 
     }
 
@@ -47,12 +46,6 @@
     }
 
     try {
-        
-        // Connexion à la base de donnée
-        $dbconnexion = new PDO($url, $db_user, $db_pass);
-
-        // Configuration (pour les exceptions), Pour afficher les erreurs dans le catch
-        $dbconnexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
         // Écrire la requête de recherche de l'utliisateur 
         $rqt = "SELECT * FROM adherents WHERE pseudo=:pseudo OR email=:email";
@@ -69,7 +62,7 @@
 
         // Si on a un résultat, ça veut dire que le pseudo ou l'email est déjà pris
         if($requetePreparee->fetch() != false) {
-            echo "Email ou pseudo déjà pris"; 
+            echo "Email ou pseudo déjà enregistré"; 
             exit;
         }
 
@@ -77,7 +70,8 @@
         $hash = password_hash($password, PASSWORD_DEFAULT); 
 
         // Écrire la requête d'insertion
-        $rqt = "INSERT INTO adherents (nom, prenom, pseudo, email, tel, numero_adherent, password, adresse, code_postal, ville) VALUES(:nom, :prenom, :pseudo, :email, :tel, :numero_adherent, :password, :adresse, :code_postal, :ville)";
+        $rqt = "INSERT INTO adherents (nom, prenom, pseudo, email, tel, numero_adherent, password, adresse, code_postal, ville) 
+                VALUES (:nom, :prenom, :pseudo, :email, :tel, :numero_adherent, :password, :adresse, :code_postal, :ville)";
 
         // Préparer la requête
         $requetePreparee = $dbconnexion->prepare($rqt);
@@ -104,11 +98,18 @@
             echo "Problème lors de l'enregistrement";
             exit;
         } else {
-            header('location: http://www.poney-fringant.local:9595/pages/centre-interet.html');
-            echo "Bienvenue $prenom, tu es bien enregistré.";
+
+            // Gestion des sessions 
+            session_start(); 
+            $_SESSION['id'] = $connexion->lastInsertId(); 
+            $_SESSION['pseudo'] = $pseudo;
+
+            //header('location: http://www.poney-fringant.local:9595/pages/interets.html');
+            echo "Bienvenue $pseudo, tu es bien enregistré.";
         } 
 
     } catch (Exception $exception) {
         // Si on a exception, c'est qu'il y a eu un problème et on affiche le message d'erreur et on quitte  
-        echo $exception->getMessage();
+        //echo $exception->getMessage();
+        echo json_encode($exception);
     }

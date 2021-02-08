@@ -3,32 +3,20 @@
     include('headers.php');
     include('db.php');
 
-    ini_set('display_errors', 1);
-    ini_set('display_startup_errors', 1);
-    error_reporting(E_ALL);
-
     // Récupérer les données du formulaire : (méthode POST)
-    $pseudo = $_POST['pseudo'];
-    $email = $_POST['email'];
+    $pseudo = $_POST['identifient'];
     $password = $_POST['password'];
 
     // Écrire la requête de recherche de l'utliisateur 
-    $rqt = "SELECT pseudo, email, password FROM adherents WHERE pseudo = :pseudo OR email = :email LIMIT 1";
-
-    // Connexion à la base de donnée
-    $dbconnexion = new PDO($url, $db_user, $db_pass);
-
-    // Configuration (pour les exceptions), Pour afficher les erreurs dans le catch
-    $dbconnexion->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $rqt = "SELECT id_adherent ,pseudo, password FROM adherents WHERE pseudo = :input OR email = :input LIMIT 1";
 
     try {
 
-       // Préparer la requête à partir de connexion à la base de données. Cette requête préparée s'appelle un statement
+        // Préparer la requête à partir de connexion à la base de données. Cette requête préparée s'appelle un statement
         $requetePreparee = $dbconnexion->prepare($rqt);
 
         // Associer la valeur (du formulaire) aux paramètres de requête préparée
-        $requetePreparee->bindParam(':pseudo', $pseudo);
-        $requetePreparee->bindParam(':email', $email);
+        $requetePreparee->bindParam("input", $pseudo);
 
         // Éxecuter la requête 
         $requetePreparee->execute(); 
@@ -37,12 +25,14 @@
         $resultat = $requetePreparee->fetch(PDO::FETCH_ASSOC);
 
     } catch (Exception $exception) {
-        // Si on a exception, c'est qu'il y a eu un problème et on affiche le message d'erreur et on quitte  
-        echo $exception->getMessage();
+
+        http_response_code(500);
+        echo json_encode($exception->getMessage());
+        exit;
     }
 
     // Si notre résultat ne contient rien, le pseudo ou l'email n'a pas été trouvé 
-    if(!empty(($resultat['pseudo']) || ($resultat['email'])) && !empty($resultat['password'])) {
+    if(!empty($resultat['pseudo']) && !empty($resultat['password'])) {
 
         $hash = $resultat['password']; 
 
@@ -50,41 +40,25 @@
         $passOk = password_verify($password, $hash);
 
         if($passOk && session_status() != PHP_SESSION_ACTIVE) {
+
             session_start();
 
+            $_SESSION['id'] = $resultat['id_adherent'];
             $_SESSION['pseudo'] = $resultat['pseudo'];
-            $_SESSION['email'] = $resultat['email'];
-       
+          
+            echo json_encode(["status" => "ok", "connected" => true, "pseudo" => $_SESSION['pseudo'], "avatar" => null, "description" => "Connexion réussie", 'sessionObject' => $_SESSION]);
 
-            setcookie('pseudo', $_POST['pseudo']);
-            setcookie('email', $_POST['email']);
-            setcookie('password', $_POST['password']);
-        
             //header('location: ../profil.php');
-            header('location: http://www.poney-fringant.local:9595/pages/profil.html');
+            //header('location: http://www.poney-fringant.local:9595/pages/profil.html');
+        
+        } else {
+
+            http_response_code(400); 
+            echo json_encode(["status" => "error", "connected" => false, "description" => "Pseudo ou email ou mot de passe invalide"]);
         }
 
     } 
 
-    // Vérifier dans les headers si on a un content type application/json
-   /* if(!empty($headers['Accept']) && $headers['Accept'] == 'application/json') {
-        header('Content-Type: application/json');
-        if($passOk) {
-            
-            header('Location: index.html');
-            echo json_encode("Bienvenue !"); 
-        } else {
-             echo json_encode("");
-        }
-    } else  {
-        header('Content-Type: text/html');
-        if($passOk) {
-            echo "Bienvenue !"; 
-        } else {
-             echo "";
-        }
-    }*/
-    
 
         
 

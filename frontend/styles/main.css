@@ -10,6 +10,31 @@ body,html{
     font-size: 18px;
     background:  #a3ffca;
 }
+
+.message {
+    padding: 20px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    display: none;
+}
+.message.visible {
+    display: block;
+}
+.statusok {
+    background: rgb(98, 196, 98);
+    color: white;
+}
+
+.statuserror {
+    background: rgb(219, 74, 74);
+    color: white;
+}
+
+.grise {
+    color:grey;
+}
 .header{
     display: flex;
     flex-direction: row;
@@ -134,7 +159,6 @@ body,html{
     margin-left: 5%;
 }
 .sous-container a{
-    text-decoration: none;
     color: rgb(2, 56, 27);
 }
 .sous-container a:hover{
@@ -188,7 +212,6 @@ body,html{
     padding: 25px 40px 0 40px;
 }
 .formulaire-connexion a{
-    text-decoration: none;
     color: rgb(2, 56, 27);
 }
 .formulaire-connexion a:hover{
@@ -320,9 +343,7 @@ input:focus{
     box-shadow:  inset 2px 2px 5px #f1f1f1, inset -2px -2px 5px #bec1ca;
 }
 .form-inscription a{
-    text-decoration: none;
     color: rgb(13, 15, 14);
-    
 }
 .form-inscription button{ 
     transition: all 0.2s ease-in-out;
