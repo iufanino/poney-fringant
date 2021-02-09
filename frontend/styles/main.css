@@ -19,7 +19,7 @@ body,html{
     width: 100%;
     display: none;
 }
-.message.visible {
+.message, .visible {
     display: block;
 }
 .statusok {

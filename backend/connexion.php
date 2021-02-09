@@ -4,7 +4,7 @@
     include('db.php');
 
     // Récupérer les données du formulaire : (méthode POST)
-    $pseudo = $_POST['identifient'];
+    $identifiant = $_POST['identifiant'];
     $password = $_POST['password'];
 
     // Écrire la requête de recherche de l'utliisateur 
@@ -16,7 +16,7 @@
         $requetePreparee = $dbconnexion->prepare($rqt);
 
         // Associer la valeur (du formulaire) aux paramètres de requête préparée
-        $requetePreparee->bindParam("input", $pseudo);
+        $requetePreparee->bindParam("input", $identifiant);
 
         // Éxecuter la requête 
         $requetePreparee->execute(); 
@@ -29,6 +29,7 @@
         http_response_code(500);
         echo json_encode($exception->getMessage());
         exit;
+        //echo $exceptionè>getMessage();
     }
 
     // Si notre résultat ne contient rien, le pseudo ou l'email n'a pas été trouvé 
@@ -47,9 +48,8 @@
             $_SESSION['pseudo'] = $resultat['pseudo'];
           
             echo json_encode(["status" => "ok", "connected" => true, "pseudo" => $_SESSION['pseudo'], "avatar" => null, "description" => "Connexion réussie", 'sessionObject' => $_SESSION]);
-
-            //header('location: ../profil.php');
-            //header('location: http://www.poney-fringant.local:9595/pages/profil.html');
+            header('location: http://www.poney-fringant.local:9595/pages/profil.html');
+            exit();
         
         } else {
 

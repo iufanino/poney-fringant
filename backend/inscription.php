@@ -4,7 +4,7 @@
     include('db.php');
 
     // Récupérer les données du formulaire d'enregistrement : (méthode POST)
-    $id = $_POST('id_adherent');
+    
     $nom = $_POST['nom'];
     $prenom = $_POST['prenom'];
     $pseudo = $_POST['pseudo']; 
@@ -16,8 +16,7 @@
     $adresse = $_POST['adresse'];
     $code_postal = $_POST['code_postal'];
     $ville = $_POST['ville'];
-
-    global $dbconnexion;
+    $id = $_POST['id'];
 
     // Valider les données d'enregistrement 
 
@@ -101,15 +100,16 @@
 
             // Gestion des sessions 
             session_start(); 
-            $_SESSION['id'] = $connexion->lastInsertId(); 
+            $_SESSION['id'] = $dbconnexion->lastInsertId(); 
             $_SESSION['pseudo'] = $pseudo;
 
-            //header('location: http://www.poney-fringant.local:9595/pages/interets.html');
-            echo "Bienvenue $pseudo, tu es bien enregistré.";
+            header('location: http://www.poney-fringant.local:9595/pages/interets.html');
+            exit();
+            //echo "Bienvenue $pseudo, tu es bien enregistré.";
         } 
 
     } catch (Exception $exception) {
         // Si on a exception, c'est qu'il y a eu un problème et on affiche le message d'erreur et on quitte  
-        //echo $exception->getMessage();
-        echo json_encode($exception);
+        echo $exception->getMessage();
+        //echo json_encode($exception);
     }
