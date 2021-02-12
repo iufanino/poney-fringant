@@ -8,7 +8,7 @@
 
         if(empty($_SESSION['pseudo']))  {
             http_response_code(403);
-            echo json_encode(["status" => "error", "description" => "Vous n'êtes pas connecté"]);
+            echo "Vous n'êtes pas connecter";
             exit; 
         }
     }
@@ -28,7 +28,7 @@
         // PDO::FETCH_ASSOC les résultats sont sous forme de tableau associatif (clé/valeur). fetch() permet de récupérer une ligne, fetchAll() toutes les lignes 
         $resultat = $requetePreparee->fetch(PDO::FETCH_ASSOC);
          
-        echo json_encode($resultat);
+        echo $resultat;
         exit;
     }
 
@@ -37,40 +37,41 @@
 
         $user = $_SESSION['id'];
 
-        $contentType = getallheaders()["Content-Type"];
-        $centreInteret = array(); 
-
-        if( $contentType == "application/json") {
-            echo json_encode('');
-        } else {
-            // On considère que le front nous a renvoyé des checkbox. 
+        if(!empty($_POST['interets'])) {
             
-
-            if(!empty($_POST['interets'])) {
-
-                $centreInteret = $_POST['interets'];
-            }
+            $interets = $_POST['interets'];
         }
 
-        $rqt = "INSERT INTO interet_adherent(id_centre_interet, id_adherent) 
+        
+        $rqt = "INSERT INTO interet_adherent (id_centre_interet, id_adherent) 
                 VALUES (:interet, :user) " ;
 
         try {
-            $requetePreparee = $dbconnexion->prepare($rqt); 
-            foreach($centreIntereT as $interet ) {
-                $$requetePreparee->bindParam("interet", $interet);
-                $$requetePreparee->bindParam("user", $user);
-                $$requetePreparee->execute();
+
+            // Préparer la requête à partir de connexion à la base de données. Cette requête préparée s'appelle un statement
+            $requetePreparee = $dbconnexion->prepare($rqt);
+            
+            foreach($interets as $interet ) {
+
+                // Associer la valeur (du formulaire) aux paramètres de requête préparée
+                $requetePreparee->bindParam("interet", $interet);
+                $requetePreparee->bindParam("user", $user);
+                
+                // Éxecuter la requête 
+                $requetePreparee->execute();
             }
 
         } catch (Exception $exception) {
-
             http_response_code(500);
-            echo json_encode($exception->getMessage());
+            echo $exception->getMessage();
             exit;
         }
 
-        echo json_encode(["status" => "ok", "description" => "La liste des centres d'intérêts à été mise à jour"]);
+        echo  "La liste des centres d'intérêts à été modifié";
+
+        header('location: ../pages/profil.html');
+
+        exit();
+
     }
-    header('location: http://www.poney-fringant.local:9595/pages/profil.html');
     

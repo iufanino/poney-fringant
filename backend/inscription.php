@@ -103,7 +103,7 @@
             $_SESSION['id'] = $dbconnexion->lastInsertId(); 
             $_SESSION['pseudo'] = $pseudo;
 
-            header('location: http://www.poney-fringant.local:9595/pages/interets.html');
+            header('location: ../pages/interets.html');
             exit();
             //echo "Bienvenue $pseudo, tu es bien enregistré.";
         } 

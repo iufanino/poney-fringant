@@ -21,7 +21,7 @@
                 <li><a href="membres.html">Membres</a></li>
                 <li><a href="statistiques.html">Statistiques</a></li>
 
-                <form id="form-recherche" action="" method="POST">
+                <form id="form-recherche" action="../backend/membres.php" method="POST">
 
                     <input type="search" name="rechercher" placeholder="  Rechercher" value="">
                     <button type="submit" id="rechercher" value="rechercher"><i class="fa fa-search"></i></button>
@@ -30,7 +30,7 @@
 
                 <li><a href="profil.html">Mon profil</a></li>
 
-                <form class="form-deconnexion" action="http://back.poney-fringant.local:9595/deconnexion.php" method="POST">
+                <form class="form-deconnexion" action="../backend/deconnexion.php" method="POST">
 
                     <button type="submit" id="deconnextion">Se déconnecter</button>
             
@@ -44,7 +44,23 @@
 
     <main class="main-profil">
 
-        <h3>PROFIL</h3>
+        <div class="container-profil">
+
+            <div class="sous-container-profil">
+
+                <img src="../images/poney-fringant.png" alt="">
+
+            </div>
+
+            <div class="sous-container-profil">
+
+                <h3>PROFIL</h3>
+                <a href="">Modiffier votre profil</a>
+                <a href="interets.html">Modiffier votre liste de centre d'interets</a>
+
+            </div>
+
+        </div>
 
     </main>
 

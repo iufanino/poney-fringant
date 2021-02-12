@@ -22,7 +22,7 @@ CREATE TABLE IF NOT EXISTS `adherents`(
   `pseudo` VARCHAR(25) UNIQUE NOT NULL,
   `email` VARCHAR(50) UNIQUE  NOT NULL,
   `tel` VARCHAR(14)  NOT NULL,
-  `numero_adherent` INT(10) UNIQUE NULL,
+  `numero_adherent` VARCHAR(10) UNIQUE NOT NULL,
   `password` VARCHAR(125) NOT NULL,
   `adresse` VARCHAR(125) NULL,
   `code_postal` INT(5) NULL,

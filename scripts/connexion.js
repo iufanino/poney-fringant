@@ -1,4 +1,4 @@
-/*const backURL = 'http://back.poney-fringant.local:9595/';
+/*const backURL = 'backend/';
 
 connexionAJAX();
 

@@ -7,7 +7,7 @@
 }
 */
 // Paramétrage de notre appli front 
-const backURL = 'http://back.poney-fringant.local:9595/';
+const backURL = 'backend/';
 
 
 

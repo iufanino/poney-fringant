@@ -12,4 +12,4 @@
         // Détruire la session
         session_destroy(); 
 
-header('location: http://www.poney-fringant.local:9595/index.html');
+header('location: ../index.html');

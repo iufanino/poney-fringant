@@ -22,14 +22,20 @@
                 <li><a href="pages/membres.html">Membres</a></li>
                 <li><a href="pages/statistiques.html">Statistiques</a></li>
 
-                <form id="form-recherche" action="" method="POST">
+                <form id="form-recherche" action="../backend/membres.php" method="POST">
 
                     <input type="search" name="rechercher" id="search" placeholder="  Rechercher" value="">
                     <button type="submit" value="rechercher"><i class="fa fa-search"></i></button>
                 
                 </form> 
 
-                <button type="submit" id="deconnextion">Se déconnecter</button>
+                <li><a href="profil.html">Mon profil</a></li>
+
+                <form class="form-deconnexion" action="../backend/deconnexion.php" method="POST">
+
+                    <button type="submit" id="deconnextion">Se déconnecter</button>
+            
+                </form>
             
             </ul>
 
@@ -39,8 +45,8 @@
 
     <main class="main-centre-interet">
 
-        <h3>Enregistrement</h3>
-        <p>Pour valider votre inscription, faites votre choix entre 3 et 8 centres d'intérets</p>
+        <h3>Le Poney Fringant</h3>
+        <p>Mettre à jour votre liste des centres d'interets, faites votre choix entre 3 et 8 centres d'intérets</p>
 
         <div class="container-checkbox">
 
@@ -48,62 +54,62 @@
 
             <h4>Les centres d'intérets</h4>
 
-            <form class="from-checkbox" method="POST" action="http://back.poney-fringant.local:9595/interets.php">
+            <form class="from-checkbox" method="POST" action="../backend/interets.php">
 
                 <div>
 
                     <div class="box">
-                        <input type="checkbox" name="animaux" class="checkbox"><br>
+                        <input type="checkbox" id="animaux" name="interets[]" value="1"  class="checkbox"><br>
                         <label for="animaux">Animaux</label>
                     </div>
 
                     <div class="box">
-                        <input type="checkbox" name="licornes" class="checkbox">
+                        <input type="checkbox" id="licornes" name="interets[]"  value="2" class="checkbox">
                         <label for="licornes">Licornes</label>
                     </div>
 
                     <div class="box">
-                        <input type="checkbox" name="jeux-videos" class="checkbox">
+                        <input type="checkbox" id="jeux-videos" name="interets[]"  value="3" class="checkbox">
                         <label for="jeux-videos">Jeux vidéos</label>
                     </div>
                   
                     <div class="box">
-                        <input type="checkbox" name="sport" class="checkbox">
+                        <input type="checkbox" id="sport" name="interets[]"  value="4" class="checkbox">
                         <label for="sport">Sport</label>
                     </div>   
                     
                     <div class="box">
-                        <input type="checkbox" name="musique" class="checkbox">
+                        <input type="checkbox" id="musique" name="interets[]"  value="5" class="checkbox">
                         <label for="musique">Musique</label>
                     </div>   
                     
                     <div class="box">
-                        <input type="checkbox" name="informatique" class="checkbox">
+                        <input type="checkbox" id="informatique" name="interets[]"  value="6" class="checkbox">
                         <label for="informatique">Informatique</label>
                     </div>
                    
                     <div class="box">
-                        <input type="checkbox" name="lecture" class="checkbox">
+                        <input type="checkbox" id="lecture" name="interets[]"  value="7" class="checkbox">
                         <label for="lecture">Lecture</label>
                     </div>
                     
                     <div class="box">
-                        <input type="checkbox" name="joaillerie" class="checkbox">
+                        <input type="checkbox" id="joaillerie" name="interets[]"  value="8" class="checkbox">
                         <label for="joaillerie">Joaillerie</label>
                     </div>  
                     
                     <div class="box">
-                        <input type="checkbox" name="cuisine" class="checkbox">
+                        <input type="checkbox" id="cuisine" name="interets[]"  value="9" class="checkbox">
                         <label for="cuisine">Cuisine</label>
                     </div>
                     
                     <div class="box">
-                        <input type="checkbox" name="aviation" class="checkbox">
+                        <input type="checkbox" id="aviation" name="interets[]" value="10"  class="checkbox">
                         <label for="aviation">Aviation</label>
                     </div>
                     
                     <div class="box">
-                        <input type="checkbox" name="mecanique" class="checkbox">
+                        <input type="checkbox" id="mecanique" name="interets[]"  value="11" class="checkbox">
                         <label for="mecanique">Mécanique</label>
                     </div>
 
@@ -112,64 +118,66 @@
                 <div>
 
                     <div class="box">
-                        <input type="checkbox" name="sorties" class="checkbox">
+                        <input type="checkbox" id="sorties" name="interets[]"  value="12" class="checkbox">
                         <label for="sorties">Sorties</label>
                     </div>
 
                     <div class="box">
-                        <input type="checkbox" name="agriculture" class="checkbox">
+                        <input type="checkbox" id="agriculture" name="interets[]"  value="13" class="checkbox">
                         <label for="agriculture">Agriculture</label>
                     </div>
 
                     <div class="box">
-                        <input type="checkbox" name="cinema" class="checkbox">
+                        <input type="checkbox" id="cinema" name="interets[]"  value="14" class="checkbox">
                         <label for="cinema">Cinéma</label>
                     </div>
 
                     <div class="box">
-                        <input type="checkbox" name="politique" class="checkbox">
+                        <input type="checkbox" id="politique" name="interets[]" value="15" class="checkbox">
                         <label for="politique">Politique</label>
                     </div>
 
                     <div class="box">
-                        <input type="checkbox" name="couture" class="checkbox">
+                        <input type="checkbox" id="couture" name="interets[]" value="16" class="checkbox">
                         <label for="couture">Couture</label>
                     </div>
 
                     <div class="box">
-                        <input type="checkbox" name="science" class="checkbox">
+                        <input type="checkbox" id="science" name="interets[]" value="17" class="checkbox">
                         <label for="science">Science</label>
                     </div>
 
                     <div class="box">
-                        <input type="checkbox" name="histoire" class="checkbox">
+                        <input type="checkbox" id="histoire" name="interets[]" value="18" class="checkbox">
                         <label for="histoire">Histoire</label>
                     </div>
 
                     <div class="box">
-                        <input type="checkbox" name="taxidermie" class="checkbox">
+                        <input type="checkbox" id="taxidermie" name="interets[]" value="19" class="checkbox">
                         <label for="taxidermie">Taxidermie</label>
                     </div>
 
                     <div class="box">
-                        <input type="checkbox" name="philatélie" class="checkbox">
+                        <input type="checkbox" id="philatélie" name="interets[]" value="20" class="checkbox">
                         <label for="philatélie">Philatélie</label>
                     </div>
 
                     <div class="box">
-                        <input type="checkbox" name="physique-chimie" class="checkbox">
+                        <input type="checkbox" id="physique-chimie" name="interets[]" value="21" class="checkbox">
                         <label for="physique-chimie">Physique-chimie</label>
                     </div>
 
                     <div class="box">
-                        <input type="checkbox" name="SVT" class="checkbox">
+                        <input type="checkbox" id="SVT" name="interets[]" value="22" class="checkbox">
                         <label for="SVT">SVT</label>
 
                     </div>
 
+                    <button class="valider" type="submit">Valider</button>
+
                 </div> 
 
-                <button type="submit">Valider</button> 
+                 
 
             </form>
             
@@ -193,7 +201,7 @@
             <li><a href="" id="git"><i class="fa fa-twitter"></i></a></li>
         </ul>
 
-        <a href="centre-interet.html" id="chevron"><i class="fa fa-chevron-up"></i></a>
+        <a href="interets.html" id="chevron"><i class="fa fa-chevron-up"></i></a>
 
     </footer>
     

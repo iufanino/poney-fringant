@@ -3,12 +3,40 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Espace membres</title>
+    <title>Statistiques</title>
     <link rel="icon" href="images/logo.png" type="image/icon">
     <link rel="stylesheet" href="../styles/main.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
+
+     <header class="header">
+
+        <a href="index.html"><img src="../images/logo-poney.png" alt="logo"></a>
+
+        <nav class="nav">
+
+            <ul>
+
+                <li><a href="membres.html">Membres</a></li>
+                <li><a href="statistiques.html">Statistiques</a></li>
+
+                <form id="form-recherche" action="../backend/membres.php" method="POST">
+
+                    <input type="search" name="rechercher" placeholder="  Rechercher" value="">
+                    <button type="submit" id="rechercher" value="rechercher"><i class="fa fa-search"></i></button>
+                
+                </form> 
+
+            </ul>
+
+        </nav>
+
+    </header>
+
+    <main>
+        
+    </main>
     
     <footer class="footer">
 
@@ -26,7 +54,7 @@
             <li><a href="" id="git"><i class="fa fa-twitter"></i></a></li>
         </ul>
 
-        <a href="membres.html" id="chevron"><i class="fa fa-chevron-up"></i></a>
+        <a href="statistiques.html" id="chevron"><i class="fa fa-chevron-up"></i></a>
 
     </footer>
 </body>

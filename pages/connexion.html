@@ -21,7 +21,7 @@
                 <li><a href="membres.html">Membres</a></li>
                 <li><a href="statistiques.html">Statistiques</a></li>
 
-                <form id="form-recherche" action="" method="POST">
+                <form id="form-recherche" action="../backend/membres.php" method="POST">
 
                     <input type="search" name="rechercher" placeholder="  Rechercher" value="">
                     <button type="submit" value="rechercher"><i class="fa fa-search"></i></button>
@@ -47,7 +47,7 @@
 
                 <p>Se connecter à votre espace personnel de Poney Fringant</p>
     
-                <form class="form-connexion" action="http://back.poney-fringant.local:9595/connexion.php" method="POST">
+                <form class="form-connexion" action="../backend/connexion.php" method="POST">
 
                     <input type="text" name="identifiant" id="email" required placeholder="Votre e-mail ou pseudo">
                     <input type="password" name="password" id="password" required placeholder="Votre mot de passe">

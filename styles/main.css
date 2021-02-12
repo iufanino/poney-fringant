@@ -10,30 +10,8 @@ body,html{
     font-size: 18px;
     background:  #a3ffca;
 }
-
-.message {
-    padding: 20px;
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    display: none;
-}
-.message, .visible {
-    display: block;
-}
-.statusok {
-    background: rgb(98, 196, 98);
-    color: white;
-}
-
-.statuserror {
-    background: rgb(219, 74, 74);
-    color: white;
-}
-
-.grise {
-    color:grey;
+sup{
+    color: red;
 }
 .header{
     display: flex;
@@ -110,21 +88,23 @@ body,html{
     background: #76eba6;
 }
 
-.main{
-   width: 100%; 
-   height: calc(100vh - 110px);
+/*  Acceuil */
+main{
+    height: calc(100vh - 110px);
+    width: 100%;
 }
 
-/*  Acceuil */
-
-.main{
-    width: 100%; 
+.main{ 
     height: calc(100vh - 110px);
     display: flex;
+    flex-direction: row ;
     justify-content: center;
+    align-items: center;
     color: rgb(2, 56, 27);
+    background: #a3ffca;
+    width: 100%;
  }
-.container{
+.container, .container-profil{
     display: flex;
     flex-direction: row;
     justify-content: center;
@@ -137,17 +117,18 @@ body,html{
     width: 80%;
     height: 80%;
 }
-.container:hover{
+.container:hover, .container-profil:hover{
     box-shadow: inset -10px -10px 25px #8fe0b2, 10px 10px 25px #b7ffe2;
 }
-.sous-container{
+.sous-container, .sous-container-profil{
     display: flex;
     flex-direction: column;
     width: 50%;
     padding: 5%;
 }
-.sous-container h3, .sous-container h4{
+.sous-container h3, .sous-container h4, .sous-container-profil h3, .sous-container-profil a{
     margin: 3%;
+    color: rgb(2, 56, 27);
 }
 .sous-container p{
     line-height: 2em;
@@ -158,6 +139,11 @@ body,html{
     height: 60%;
     margin-left: 5%;
 }
+.sous-container-profil img{
+    width: 85%;
+    height: 100%;
+    margin-left: 10%;
+}
 .sous-container a{
     color: rgb(2, 56, 27);
 }
@@ -165,23 +151,13 @@ body,html{
     font-size: 19px;
 }
 
-/*  Connexion   */
-.main{
-    display: flex;
-    flex-direction: row ;
-    justify-content: center;
-    align-items: center;
-    color: rgb(2, 56, 27);
-    background: #a3ffca;
-    height: auto;
-    width: 100%;
-}
+/*  Connexion */  
 .container-connexion{
     display: flex;
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    height: 65%;
+    height: 85%;
     width: auto;
     margin: 3%;
     border-radius: 20px;
@@ -366,6 +342,26 @@ input:focus{
 }
 
 /*  Les centres d'intérets  */
+.main-centre-interet button{
+    transition: all 0.2s ease-in-out;
+    cursor: pointer;
+    padding: 15px;
+    margin: 5%;
+    border-radius: 30px;
+    outline: none;
+    background: rgb(42, 185, 42);
+    box-shadow: inset 5px 5px 10px #1d821d, inset -5px -5px 10px #37f137;
+    color: #0f0f0f;
+    width: 60%;
+}
+.main-centre-interet button:hover{
+    background: rgb(51, 223, 51);
+    box-shadow: inset 5px 5px 10px #33cc33, inset -5px -5px 10px #4dff4d;
+}
+.main-centre-interet button:active{
+    background: rgb(42, 185, 42);
+    box-shadow: inset -2px -2px 5px #1d821d, inset 2px 2px 5px #37f137;
+}
 
 /*  Profil  */
 
@@ -377,6 +373,14 @@ input:focus{
     width: 100%;
     height: calc(100vh - 110px);
 }
+.container-profil{
+    display: flex;
+}
+.sous-container-profil{
+    margin:  3%;
+    align-content: stretch;
+}
+/*  Centres d'interets  */
 
 .main-centre-interet{
     color: rgb(2, 56, 27);
@@ -386,9 +390,11 @@ input:focus{
     display: flex;
     flex-direction: column;
     align-items: center;
+    height: auto;
+    width: 100%;
 }
-.main-centre-interet h3{
-    padding: 5%;
+.main-centre-interet h3, .main-centre-interet p{
+    padding: 5% 4%;
 }
 .container-checkbox{
     display: flex;
@@ -513,6 +519,19 @@ input:focus{
     .sous-container p{
         font-size: 15px;
     } 
+    .header, .form-deconnexion button{
+        font-size: 15px;
+    }
+    .header img{
+        width: 80px;
+    }
+    .nav ul li {
+        padding: 18px;
+    }
+    .sous-container-profil{
+        margin: 6% 3%;
+        align-content: stretch;
+    }
 }
 @media  screen and (max-width: 850px){
     .footer{
@@ -530,12 +549,34 @@ input:focus{
     .formulaire-inscription div{
         padding: 2%;
     }
+    .header, .form-deconnexion button{
+        font-size: 14px;
+    }
     .header img{
-        width: 80px;
+        width: 70px;
+    }
+    .nav ul li {
+        padding: 16px;
+    }
+    .form-deconnexion, #form-recherche{
+        padding: 9px;
+    }
+    #form-recherche input, #form-recherche button, .form-deconnexion button{
+        padding: 7px;
+    }
+    .sous-container-profil{
+        margin: 6% 3%;
+        align-content: stretch;
     }
 }
 @media  screen and (max-width: 780px){
     .footer{
         display: none;
     }
+    .nav{
+        display: none;
+    }
+}
+@media  screen and (max-width: 450px){
+
 }

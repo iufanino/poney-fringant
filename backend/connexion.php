@@ -27,9 +27,9 @@
     } catch (Exception $exception) {
 
         http_response_code(500);
-        echo json_encode($exception->getMessage());
+        //echo json_encode($exception->getMessage());
         exit;
-        //echo $exceptionè>getMessage();
+        echo $exceptionè>getMessage();
     }
 
     // Si notre résultat ne contient rien, le pseudo ou l'email n'a pas été trouvé 
@@ -48,7 +48,7 @@
             $_SESSION['pseudo'] = $resultat['pseudo'];
           
             echo json_encode(["status" => "ok", "connected" => true, "pseudo" => $_SESSION['pseudo'], "avatar" => null, "description" => "Connexion réussie", 'sessionObject' => $_SESSION]);
-            header('location: http://www.poney-fringant.local:9595/pages/profil.html');
+            header('location: ../pages/profil.html');
             exit();
         
         } else {
